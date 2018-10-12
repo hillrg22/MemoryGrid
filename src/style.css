@@ -17,11 +17,6 @@
     vertical-align: middle;
 }
 
-/* .text {
-    align-content: center;
-    vertical-align: middle;
-} */
-
 .container-div {
     grid-column-start: 2;
     grid-column-end: five;
