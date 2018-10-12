@@ -8,30 +8,36 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      zero: {color: '#39D1B4'},
-      one: {color: '#39D1B4'},
-      two: {color: '#39D1B4'},
-      three: {color: '#39D1B4'},
-      four: {color: '#39D1B4'},
-      five: {color: '#39D1B4'},
-      six: {color: '#39D1B4'},
-      seven: {color: '#39D1B4'},
-      eight: {color: '#39D1B4'},
+      zero: {backgroundColor: '#39D1B4'},
+      one: {backgroundColor: '#39D1B4'},
+      two: {backgroundColor: '#39D1B4'},
+      three: {backgroundColor: '#39D1B4'},
+      four: {backgroundColor: '#39D1B4'},
+      five: {backgroundColor: '#39D1B4'},
+      six: {backgroundColor: '#39D1B4'},
+      seven: {backgroundColor: '#39D1B4'},
+      eight: {backgroundColor: '#39D1B4'},
 
       test: 0
     }
   }
 
-
+  
 
   timeout = () => {
     // this.setState({test: 1})
 
-    setTimeout(()=> this.setState({one:{color:'#ffd712'}}),500);
-    setTimeout(()=> this.setState({one:{color:'#39D1B4'}}),1200);
+    setTimeout(()=> this.setState({zero:{backgroundColor:'#ffd712'}}),0);
+    setTimeout(()=> this.setState({zero:{backgroundColor:'#39D1B4'}}),1000);
 
-    console.log(this.state)
-    // setTimeout(function(){console.log("set timeout 2")},6000);
+    setTimeout(()=> this.setState({five:{backgroundColor:'#ffd712'}}),1500);
+    setTimeout(()=> this.setState({five:{backgroundColor:'#39D1B4'}}),2500);
+
+    setTimeout(()=> this.setState({eight:{backgroundColor:'#ffd712'}}),3000);
+    setTimeout(()=> this.setState({eight:{backgroundColor:'#39D1B4'}}),4000);
+
+    setTimeout(()=> this.setState({two:{backgroundColor:'#ffd712'}}),4500);
+    setTimeout(()=> this.setState({two:{backgroundColor:'#39D1B4'}}),5500);
   }
 
 
@@ -39,9 +45,18 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <div style={{background:this.state.one.color}}>Hello</div>
+        <div style={{background:this.state.one.backgroundColor}}>Hello</div>
         <button onClick={this.timeout}>Button</button>
-        <GameBoard />
+        <GameBoard zero ={this.state.zero}
+          one ={this.state.one}
+          two ={this.state.two}
+          three ={this.state.three}
+          four ={this.state.four}
+          five ={this.state.five}
+          six ={this.state.six}
+          seven ={this.state.seven}
+          eight ={this.state.eight}
+            timeout= {this.timeout} />
         <Footer />
       </div>
 
