@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import { Button } from 'reactstrap'
 import GameBoard from './components/GameBoard';
 import Footer from './components/Footer';
 import Header from './components/Header';
 
 
 class App extends Component {
+  
   constructor(props){
     super(props)
     this.state = {
@@ -18,10 +20,24 @@ class App extends Component {
       seven: {backgroundColor: '#39D1B4'},
       eight: {backgroundColor: '#39D1B4'},
 
-      test: 0
+      test: [1 , 6, 9, 3]
     }
   }
 
+  checkAnswer = (answerArr) => {
+    console.log(answerArr)
+    console.log('test: ', this.state.test)
+        for(let i=0; i < this.state.test.length; i++){
+          if (this.state.test[i] !== answerArr[i]) {
+            return (
+              alert('Bummer')
+            )
+          }
+        } 
+        return (
+          alert('Great!')
+        )
+      }
   
 
   timeout = () => {
@@ -46,7 +62,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <div style={{background:this.state.one.backgroundColor}}>Hello</div>
-        <button onClick={this.timeout}>Button</button>
+        <Button color="danger" onClick={this.timeout}>Display Pattern</Button>
         <GameBoard zero ={this.state.zero}
           one ={this.state.one}
           two ={this.state.two}
@@ -56,7 +72,9 @@ class App extends Component {
           six ={this.state.six}
           seven ={this.state.seven}
           eight ={this.state.eight}
-            timeout= {this.timeout} />
+          timeout= {this.timeout} 
+          checkAnswer={this.checkAnswer}
+            />
         <Footer />
       </div>
 
