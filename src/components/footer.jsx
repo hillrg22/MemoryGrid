@@ -1,6 +1,6 @@
 import React from 'react';
 
-const footer = () => {
+const Footer = () => {
     return (
         <nav className="navbar navbar-dark bg-dark">
         <a className="navbar-brand" href="#">copyright CCR 2018</a>
@@ -8,4 +8,4 @@ const footer = () => {
     )
 }
 
-export default footer;
+export default Footer;

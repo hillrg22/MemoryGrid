@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import GameBoard from './components/GameBoard';
+import Footer from './components/Footer';
+import Header from './components/Header';
+
 
 class App extends Component {
   constructor(props){
@@ -34,9 +38,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Header />
         <div style={{background:this.state.one.color}}>Hello</div>
         <button onClick={this.timeout}>Button</button>
+        <GameBoard />
+        <Footer />
       </div>
+
     );
   }
 }
